@@ -1,5 +1,5 @@
 export interface Product {
-    id: number;
+    id: string;
     title: string;
     price: number;
     description: string;
@@ -7,3 +7,6 @@ export interface Product {
     image: string;
   }
   
+  export  interface Props {
+    product: Product;
+  }

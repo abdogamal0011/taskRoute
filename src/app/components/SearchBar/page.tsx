@@ -1,4 +1,4 @@
-import { useProductsStore } from '../hooks/useProducts';
+import { useProductsStore } from '../../hooks/useProducts';
 import { ChangeEvent } from 'react';
 
 export default function SearchBar() {

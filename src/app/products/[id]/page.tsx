@@ -1,23 +1,20 @@
 import { Product } from '../../types/product';
 
-interface Props {
-  params: { id: string };
-}
 
-// Fetch a single product by ID
 async function fetchProduct(id: string): Promise<Product | null> {
   try {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
-    if (!res.ok) return null; // Handle missing product
+    if (!res.ok) return null; 
     return await res.json();
   } catch (error) {
     console.error('Error fetching product:', error);
-    return null; // Handle fetch errors
+    return null; 
   }
 }
 
-export default async function ProductDetails({ params }: Props) {
-  const { id } = await params; // Correctly access params.id
+
+export default async function ProductDetails({ params }: { params: { id: string } }) {
+  const { id } = await params; 
 
   const product = await fetchProduct(id);
 
@@ -31,21 +28,20 @@ export default async function ProductDetails({ params }: Props) {
   }
 
   return (
-    <div className="container mx-auto m-9 p-10 border rounded ">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
+    <div className="container mx-auto border p-5 m-5 shadow">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <img
           src={product.image}
           alt={product.title}
-          className="w-1/2"
-          />
-       
-        <div className='text-gray-800 my-auto'>
-          <h1 className="text-2xl text-black font-bold">{product.title}</h1>
-          <p className="text-xl">${product.price}</p>
-          <p className="mt-4 leading-6">{product.description}</p>
-          <p className="text-sm  mt-2 text-sky-400"> {product.category}</p>
-        </div>
+          className="w-1/2 p-5"
+        />
+        <div className="text-gray-700 my-auto">
+          <h1 className="text-2xl font-bold text-black">{product.title}</h1>
+          <p className="text-blue-500">${product.price}</p>
+          <p className="mt-4">{product.description}</p>
+          <p className="text-sm mt-2 text-blue-500">{product.category}</p>
         </div>
       </div>
-    );
+    </div>
+  );
 }

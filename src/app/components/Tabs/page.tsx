@@ -1,3 +1,5 @@
+'use client';  
+
 import { ReactElement, useState } from 'react';
 
 interface TabProps {
@@ -14,9 +16,7 @@ export default function Tabs({ children }: { children: ReactElement<TabProps>[] 
         {children.map((child, index) => (
           <button
             key={index}
-            className={`pb-2 ${
-              index === activeTab ? 'border-b-2 border-blue-500' : ''
-            }`}
+            className={`pb-2 ${index === activeTab ? 'border-b-2 border-blue-500' : ''}`}
             onClick={() => setActiveTab(index)}
           >
             {child.props.label}

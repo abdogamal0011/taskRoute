@@ -2,18 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import { useProductsStore } from './hooks/useProducts';
-import ProductCard from './components/ProductCard';
+import ProductCard from './components/ProductCard/page';
 import { Product } from './types/product';
 
 export default function Home() {
-  const [products, setProducts] = useState<Product[]>([]); // Explicit type for products
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]); // Explicit type for filteredProducts
+  const [products, setProducts] = useState<Product[]>([]); 
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]); 
   const { searchQuery, sortBy, setSearchQuery, setSortBy } = useProductsStore();
 
   useEffect(() => {
     async function fetchProducts() {
       const res = await fetch('https://fakestoreapi.com/products');
-      const data: Product[] = await res.json(); // Explicitly type the API response
+      const data: Product[] = await res.json(); 
       setProducts(data);
       setFilteredProducts(data);
     }
