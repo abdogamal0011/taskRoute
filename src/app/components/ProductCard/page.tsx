@@ -1,13 +1,21 @@
-
-'use client'; 
+'use client';
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-//import { Product } from '@/types/product';
 
+// Define the Product type
+type Product = {
+  id: number;
+  image: string;
+  title: string;
+  price: number;
+};
 
+type ProductCardProps = {
+  product: Product;
+};
 
-export default function ProductCard({ product }:unknown  ) {
+export default function ProductCard({ product }: ProductCardProps) {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
