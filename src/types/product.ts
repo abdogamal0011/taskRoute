@@ -1,12 +1,10 @@
 export interface Product {
-    id: string;
-    title: string;
-    price: number;
-    description: string;
-    category: string;
-    image: string;
+    id: number| unknown  ;
+    title: string | unknown  ;
+    price: number | unknown ;
+    description: string | unknown ;
+    category: string | unknown ;
+    image: string | unknown ;
   }
   
-  export  interface Props {
-    product: Product;
-  }
+ 

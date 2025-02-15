@@ -3,11 +3,11 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Props } from '@/types/product';
+//import { Product } from '@/types/product';
 
 
 
-export default function ProductCard({ product }: Props) {
+export default function ProductCard({ product }:unknown  ) {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
